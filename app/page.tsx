@@ -126,12 +126,12 @@ export default function Home() {
             description="Selected residences and retreats where technology supports atmosphere, comfort, and architectural intent."
             action={
               <TrackedAnchor
-                href="#contact"
+                href="/projects"
                 className="button-base button-secondary"
                 eventName="project_teaser_click"
                 eventProps={{ source: "projects_heading" }}
               >
-                Request Full Portfolio
+                View All Projects
               </TrackedAnchor>
             }
           />
@@ -153,6 +153,14 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-text-muted)]">{project.location}</p>
                   <h3 className="font-serif text-2xl text-[var(--color-text)]">{project.name}</h3>
                   <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{project.outcome}</p>
+                  <TrackedAnchor
+                    href={project.href}
+                    className="inline-flex text-xs uppercase tracking-[0.18em] text-[var(--color-accent-soft)] transition-colors hover:text-[var(--color-accent)]"
+                    eventName="project_teaser_click"
+                    eventProps={{ source: "home_projects", project: project.name }}
+                  >
+                    View Project Story
+                  </TrackedAnchor>
                 </div>
               </article>
             ))}

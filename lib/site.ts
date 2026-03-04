@@ -12,7 +12,7 @@ export const siteConfig = {
 
 export const navigation = [
   { label: "Solutions", href: "/solutions" },
-  { label: "Projects", href: "/#projects" },
+  { label: "Projects", href: "/projects" },
   { label: "Process", href: "/#process" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -287,26 +287,83 @@ export const solutionCards = solutions.map((solution) => ({
   href: `/solutions/${solution.slug}`,
 }));
 
-export const featuredProjects = [
+export type Project = {
+  slug: string;
+  name: string;
+  location: string;
+  sector: string;
+  image: string;
+  gallery: string[];
+  challenge: string;
+  solutionStory: string;
+  stack: string[];
+  outcomes: string[];
+};
+
+export const projects: Project[] = [
   {
+    slug: "clifton-ocean-residence",
     name: "Clifton Ocean Residence",
     location: "Cape Town",
-    outcome: "Unified lighting, shading, and AV control across 4 levels",
+    sector: "Private Residence",
     image: "/images/project-clifton.jpg",
+    gallery: ["/images/project-clifton.jpg", "/images/hero-interior.jpg", "/images/project-bishopscourt.jpg"],
+    challenge:
+      "The brief called for complete systems integration across four levels while preserving a calm architectural language and minimizing visible hardware.",
+    solutionStory:
+      "We coordinated early with the architect and interior team to consolidate control, lighting, AV, and shading into a single scene-driven ecosystem with low-profile interfaces.",
+    stack: ["Control4 Core", "Lutron Lighting", "Triad Audio", "Pakedge Network", "Hikvision Surveillance"],
+    outcomes: [
+      "Unified scene recall for day, evening, and entertaining routines",
+      "Reduced wall clutter through keypad consolidation",
+      "Remote diagnostics and owner access across all critical zones",
+    ],
   },
   {
+    slug: "knysna-forest-retreat",
     name: "Knysna Forest Retreat",
     location: "Garden Route",
-    outcome: "Cinema-grade media suite with silent automation and backup resilience",
+    sector: "Holiday Residence",
     image: "/images/project-knysna.jpg",
+    gallery: ["/images/project-knysna.jpg", "/images/project-clifton.jpg", "/images/hero-interior.jpg"],
+    challenge:
+      "The retreat required resilient media and automation infrastructure in a remote setting with intermittent connectivity and seasonal occupancy.",
+    solutionStory:
+      "We designed a local-first control architecture with cinema-grade AV, structured backup strategies, and intuitive handover presets for rotating guest usage.",
+    stack: ["Crestron Home", "Bowers & Wilkins", "Sony Projection", "UniFi Network", "KNX Gateway"],
+    outcomes: [
+      "Cinema-grade media performance with one-touch operation",
+      "Stable control during connectivity interruptions",
+      "Simplified arrival and departure scenes for guests and staff",
+    ],
   },
   {
+    slug: "bishopscourt-estate-pavilion",
     name: "Bishopscourt Estate Pavilion",
     location: "Cape Town",
-    outcome: "Architect-led smart control integration for guest and entertainment zones",
+    sector: "Estate Extension",
     image: "/images/project-bishopscourt.jpg",
+    gallery: ["/images/project-bishopscourt.jpg", "/images/project-clifton.jpg", "/images/project-knysna.jpg"],
+    challenge:
+      "A new entertainment pavilion needed full smart integration and security zoning without compromising the estate's established design language.",
+    solutionStory:
+      "We delivered a layered automation strategy for guest areas, exterior lighting, access control, and distributed AV while aligning all interfaces to the architectural palette.",
+    stack: ["Control4", "Lutron Shades", "Sonos Architectural", "Axis Cameras", "DoorBird Access"],
+    outcomes: [
+      "Frictionless hosting with synchronized lighting, music, and shading scenes",
+      "Discrete security and controlled access for event periods",
+      "Future-ready infrastructure for additional outdoor zones",
+    ],
   },
 ];
+
+export const featuredProjects = projects.map((project) => ({
+  name: project.name,
+  location: project.location,
+  outcome: project.outcomes[0],
+  image: project.image,
+  href: `/projects/${project.slug}`,
+}));
 
 export const testimonials = [
   {
