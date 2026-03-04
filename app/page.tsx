@@ -41,7 +41,7 @@ export default function Home() {
               </p>
               <div className="fade-in flex flex-wrap gap-4" style={{ ["--delay" as string]: "220ms" }}>
                 <TrackedAnchor
-                  href="#contact"
+                  href="/contact"
                   eventName="book_call_click"
                   eventProps={{ source: "hero" }}
                   className="button-base button-primary"
@@ -107,7 +107,7 @@ export default function Home() {
 
           <div className="mt-10">
             <TrackedAnchor
-              href="#contact"
+              href="/contact"
               className="button-base button-secondary"
               eventName="solutions_preview_click"
               eventProps={{ source: "solutions_section" }}
@@ -219,7 +219,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <TrackedAnchor
-                href="mailto:hello@smarthomearchitects.co.za?subject=Discovery%20Call%20Request"
+                href="/contact"
                 eventName="book_call_click"
                 eventProps={{ source: "final_cta" }}
                 className="button-base button-primary"

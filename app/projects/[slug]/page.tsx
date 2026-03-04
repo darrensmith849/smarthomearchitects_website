@@ -177,7 +177,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <TrackedAnchor
-                href="/#contact"
+                href="/contact"
                 eventName="book_call_click"
                 eventProps={{ source: `project_final_${project.slug}` }}
                 className="button-base button-primary"

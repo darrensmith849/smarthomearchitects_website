@@ -37,7 +37,7 @@ export function SiteHeader() {
             WhatsApp Us
           </TrackedAnchor>
           <TrackedAnchor
-            href="#contact"
+            href="/contact"
             eventName="book_call_click"
             eventProps={{ source: "header" }}
             className="button-base button-primary"

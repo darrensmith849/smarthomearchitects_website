@@ -87,7 +87,7 @@ export default function ProjectsPage() {
             </p>
             <div className="mt-8">
               <TrackedAnchor
-                href="/#contact"
+                href="/contact"
                 eventName="book_call_click"
                 eventProps={{ source: "projects_final_cta" }}
                 className="button-base button-primary"

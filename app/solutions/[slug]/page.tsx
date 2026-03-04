@@ -116,7 +116,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
               <p className="mt-6 text-sm uppercase tracking-[0.15em] text-[var(--color-accent-soft)]">{solution.outcome}</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <TrackedAnchor
-                  href="/#contact"
+                  href="/contact"
                   eventName="book_call_click"
                   eventProps={{ source: `solution_hero_${solution.slug}` }}
                   className="button-base button-primary"
@@ -232,7 +232,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <TrackedAnchor
-                href="/#contact"
+                href="/contact"
                 eventName="book_call_click"
                 eventProps={{ source: `solution_final_${solution.slug}` }}
                 className="button-base button-primary"

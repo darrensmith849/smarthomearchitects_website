@@ -13,8 +13,8 @@ export const siteConfig = {
 export const navigation = [
   { label: "Solutions", href: "/solutions" },
   { label: "Projects", href: "/projects" },
-  { label: "Process", href: "/#process" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Process", href: "/process" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const partnerBrands = [

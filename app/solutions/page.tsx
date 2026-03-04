@@ -84,7 +84,7 @@ export default function SolutionsPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <TrackedAnchor
-                href="/#contact"
+                href="/contact"
                 eventName="book_call_click"
                 eventProps={{ source: "solutions_page_final_cta" }}
                 className="button-base button-primary"
@@ -92,7 +92,7 @@ export default function SolutionsPage() {
                 Book a Discovery Call
               </TrackedAnchor>
               <TrackedAnchor
-                href="/#contact"
+                href="/contact"
                 eventName="guide_download_click"
                 eventProps={{ source: "solutions_page_final_cta" }}
                 className="button-base button-secondary"

@@ -15,6 +15,15 @@ export function SiteFooter() {
           <p>{siteConfig.location}</p>
           <p>hello@smarthomearchitects.co.za</p>
           <p>+27 21 000 0000</p>
+          <p className="pt-1">
+            <a href="/privacy-policy" className="transition-colors hover:text-[var(--color-accent-soft)]">
+              Privacy Policy
+            </a>{" "}
+            ·{" "}
+            <a href="/terms" className="transition-colors hover:text-[var(--color-accent-soft)]">
+              Terms
+            </a>
+          </p>
           <p className="pt-2 text-xs uppercase tracking-[0.18em]">
             © {new Date().getFullYear()} Smart Home Architects
           </p>
