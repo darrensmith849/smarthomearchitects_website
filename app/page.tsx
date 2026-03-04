@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SolutionGrid } from "@/components/solutions/solution-grid";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TrackedAnchor } from "@/components/ui/tracked-anchor";
@@ -6,7 +7,6 @@ import {
   featuredProjects,
   partnerBrands,
   siteConfig,
-  solutionCards,
   testimonials,
 } from "@/lib/site";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -103,18 +103,7 @@ export default function Home() {
             description="Every solution is engineered around architecture, lifestyle, and long-term reliability rather than device-led complexity."
           />
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {solutionCards.map((solution, index) => (
-              <article
-                key={solution.title}
-                className="surface-panel rounded-[var(--radius-md)] p-6"
-                style={{ ["--delay" as string]: `${index * 80}ms` }}
-              >
-                <h3 className="font-serif text-2xl text-[var(--color-text)]">{solution.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">{solution.description}</p>
-              </article>
-            ))}
-          </div>
+          <SolutionGrid compact />
 
           <div className="mt-10">
             <TrackedAnchor
