@@ -3,6 +3,7 @@ import { SolutionGrid } from "@/components/solutions/solution-grid";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TrackedAnchor } from "@/components/ui/tracked-anchor";
+import { insightPosts } from "@/lib/insights";
 import {
   featuredProjects,
   partnerBrands,
@@ -203,6 +204,35 @@ export default function Home() {
                   <p>{testimonial.role}</p>
                 </footer>
               </blockquote>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-space border-t border-[var(--color-border)]">
+        <Container>
+          <SectionHeading
+            kicker="Insights"
+            title="Planning Guidance for Design-Led Smart Homes"
+            action={
+              <TrackedAnchor href="/insights" className="button-base button-secondary">
+                View Insights
+              </TrackedAnchor>
+            }
+          />
+          <div className="grid gap-4 md:grid-cols-3">
+            {insightPosts.slice(0, 3).map((post) => (
+              <article key={post.slug} className="surface-panel rounded-[var(--radius-md)] p-6">
+                <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-text-muted)]">{post.category}</p>
+                <h3 className="mt-3 font-serif text-2xl text-[var(--color-text)]">{post.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">{post.excerpt}</p>
+                <TrackedAnchor
+                  href={`/insights/${post.slug}`}
+                  className="mt-5 inline-flex text-xs uppercase tracking-[0.18em] text-[var(--color-accent-soft)] transition-colors hover:text-[var(--color-accent)]"
+                >
+                  Read Article
+                </TrackedAnchor>
+              </article>
             ))}
           </div>
         </Container>

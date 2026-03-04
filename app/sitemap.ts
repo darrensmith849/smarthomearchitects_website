@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { insightPosts } from "@/lib/insights";
 import { projects, siteConfig, solutions } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -66,11 +67,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.4,
     },
+    {
+      url: `${base}/insights`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
     ...projects.map((project) => ({
       url: `${base}/projects/${project.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    ...insightPosts.map((post) => ({
+      url: `${base}/insights/${post.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
   ];
 }

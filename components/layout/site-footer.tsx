@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
@@ -16,13 +17,26 @@ export function SiteFooter() {
           <p>hello@smarthomearchitects.co.za</p>
           <p>+27 21 000 0000</p>
           <p className="pt-1">
-            <a href="/privacy-policy" className="transition-colors hover:text-[var(--color-accent-soft)]">
-              Privacy Policy
-            </a>{" "}
+            <Link href="/about" className="transition-colors hover:text-[var(--color-accent-soft)]">
+              About
+            </Link>{" "}
             ·{" "}
-            <a href="/terms" className="transition-colors hover:text-[var(--color-accent-soft)]">
+            <Link href="/for-architects-designers" className="transition-colors hover:text-[var(--color-accent-soft)]">
+              Architects & Designers
+            </Link>{" "}
+            ·{" "}
+            <Link href="/insights" className="transition-colors hover:text-[var(--color-accent-soft)]">
+              Insights
+            </Link>
+          </p>
+          <p className="pt-1">
+            <Link href="/privacy-policy" className="transition-colors hover:text-[var(--color-accent-soft)]">
+              Privacy Policy
+            </Link>{" "}
+            ·{" "}
+            <Link href="/terms" className="transition-colors hover:text-[var(--color-accent-soft)]">
               Terms
-            </a>
+            </Link>
           </p>
           <p className="pt-2 text-xs uppercase tracking-[0.18em]">
             © {new Date().getFullYear()} Smart Home Architects
