@@ -1,65 +1,256 @@
 import Image from "next/image";
+import { Container } from "@/components/ui/container";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { TrackedAnchor } from "@/components/ui/tracked-anchor";
+import {
+  featuredProjects,
+  partnerBrands,
+  siteConfig,
+  solutionCards,
+  testimonials,
+} from "@/lib/site";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
+
+const processSteps = [
+  "Discovery",
+  "Design",
+  "Install",
+  "Handover",
+  "Support",
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <section className="section-space pb-20 pt-20 md:pb-24 md:pt-28" id="top">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+            <div className="space-y-8">
+              <span className="kicker fade-in">Cape Town & Garden Route</span>
+              <h1 className="h1-display fade-in text-5xl text-[var(--color-text)] md:text-7xl" style={{ ["--delay" as string]: "80ms" }}>
+                Intelligent Homes,
+                <br />
+                Architected with Quiet Precision.
+              </h1>
+              <p
+                className="fade-in max-w-2xl text-lg leading-relaxed text-[var(--color-text-muted)] md:text-xl"
+                style={{ ["--delay" as string]: "160ms" }}
+              >
+                Smart Home Architects designs and installs bespoke automation for discerning homes and hospitality
+                environments, integrating lighting, cinema, AV, shading, and security into a seamless daily experience.
+              </p>
+              <div className="fade-in flex flex-wrap gap-4" style={{ ["--delay" as string]: "220ms" }}>
+                <TrackedAnchor
+                  href="#contact"
+                  eventName="book_call_click"
+                  eventProps={{ source: "hero" }}
+                  className="button-base button-primary"
+                >
+                  Book a Discovery Call
+                </TrackedAnchor>
+                <TrackedAnchor
+                  href={buildWhatsAppUrl(siteConfig.whatsappNumber)}
+                  eventName="whatsapp_click"
+                  eventProps={{ source: "hero" }}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="button-base button-secondary"
+                >
+                  WhatsApp Us
+                </TrackedAnchor>
+              </div>
+            </div>
+
+            <article className="surface-panel fade-in overflow-hidden rounded-[var(--radius-lg)] p-5" style={{ ["--delay" as string]: "200ms" }}>
+              <div className="relative h-[20rem] overflow-hidden rounded-[var(--radius-md)] md:h-[25rem]">
+                <Image
+                  src="/images/hero-interior.jpg"
+                  alt="Luxury architectural living room with integrated smart lighting"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-3 px-1 pt-5">
+                <p className="kicker">White-Glove Delivery</p>
+                <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">
+                  From first concept to long-term support, every detail is managed in coordination with architects,
+                  interior studios, and contractors.
+                </p>
+              </div>
+            </article>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-[var(--color-border)] py-8">
+        <Container>
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-3 text-sm uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+            <span className="text-xs tracking-[0.2em]">Trusted Integrations</span>
+            {partnerBrands.map((brand) => (
+              <span key={brand}>{brand}</span>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-space" id="solutions">
+        <Container>
+          <SectionHeading
+            kicker="Solutions"
+            title="Bespoke Systems, Unified Through One Design Language"
+            description="Every solution is engineered around architecture, lifestyle, and long-term reliability rather than device-led complexity."
+          />
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {solutionCards.map((solution, index) => (
+              <article
+                key={solution.title}
+                className="surface-panel rounded-[var(--radius-md)] p-6"
+                style={{ ["--delay" as string]: `${index * 80}ms` }}
+              >
+                <h3 className="font-serif text-2xl text-[var(--color-text)]">{solution.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">{solution.description}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <TrackedAnchor
+              href="#contact"
+              className="button-base button-secondary"
+              eventName="solutions_preview_click"
+              eventProps={{ source: "solutions_section" }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+              Discuss Your Scope
+            </TrackedAnchor>
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-space border-t border-[var(--color-border)]" id="projects">
+        <Container>
+          <SectionHeading
+            kicker="Featured Projects"
+            title="Proof of Craftsmanship in Every Detail"
+            description="Selected residences and retreats where technology supports atmosphere, comfort, and architectural intent."
+            action={
+              <TrackedAnchor
+                href="#contact"
+                className="button-base button-secondary"
+                eventName="project_teaser_click"
+                eventProps={{ source: "projects_heading" }}
+              >
+                Request Full Portfolio
+              </TrackedAnchor>
+            }
+          />
+
+          <div className="grid gap-5 lg:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <article key={project.name} className="surface-panel overflow-hidden rounded-[var(--radius-md)]">
+                <div className="relative h-64">
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} smart home automation installation`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="space-y-3 p-6">
+                  <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-text-muted)]">{project.location}</p>
+                  <h3 className="font-serif text-2xl text-[var(--color-text)]">{project.name}</h3>
+                  <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{project.outcome}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-space border-t border-[var(--color-border)]" id="process">
+        <Container>
+          <SectionHeading
+            kicker="Our Process"
+            title="A Structured Journey from Concept to Lifelong Support"
+            description="Your project is handled through a disciplined five-stage framework with transparent communication and technical accountability."
+          />
+
+          <div className="grid gap-4 md:grid-cols-5">
+            {processSteps.map((step, index) => (
+              <article key={step} className="surface-panel rounded-[var(--radius-md)] p-5">
+                <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-text-muted)]">Step {index + 1}</p>
+                <h3 className="mt-2 font-serif text-2xl text-[var(--color-text)]">{step}</h3>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-space border-t border-[var(--color-border)]">
+        <Container>
+          <SectionHeading
+            kicker="Client Perspective"
+            title="Trusted by Homeowners and Design Professionals"
+          />
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {testimonials.map((testimonial) => (
+              <blockquote key={testimonial.author} className="surface-panel rounded-[var(--radius-md)] p-6">
+                <p className="font-serif text-2xl leading-snug text-[var(--color-text)]">“{testimonial.quote}”</p>
+                <footer className="mt-6 text-sm text-[var(--color-text-muted)]">
+                  <p>{testimonial.author}</p>
+                  <p>{testimonial.role}</p>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-space border-t border-[var(--color-border)]" id="contact">
+        <Container>
+          <div className="surface-panel rounded-[var(--radius-lg)] p-8 md:p-12">
+            <span className="kicker">Start Your Project</span>
+            <h2 className="h1-display mt-4 text-4xl md:text-6xl">Book Your Discovery Call</h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
+              Share your timeline, build stage, and ambitions. We will recommend a practical next step and coordinate
+              with your architect, interior designer, or project team.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <TrackedAnchor
+                href="mailto:hello@smarthomearchitects.co.za?subject=Discovery%20Call%20Request"
+                eventName="book_call_click"
+                eventProps={{ source: "final_cta" }}
+                className="button-base button-primary"
+              >
+                Book a Discovery Call
+              </TrackedAnchor>
+              <TrackedAnchor
+                href={buildWhatsAppUrl(siteConfig.whatsappNumber)}
+                eventName="whatsapp_click"
+                eventProps={{ source: "final_cta" }}
+                target="_blank"
+                rel="noreferrer"
+                className="button-base button-secondary"
+              >
+                WhatsApp Us
+              </TrackedAnchor>
+              <TrackedAnchor
+                href="/smart-home-planning-guide.pdf"
+                eventName="guide_download_click"
+                eventProps={{ source: "final_cta" }}
+                className="button-base button-secondary"
+              >
+                Download Planning Guide
+              </TrackedAnchor>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }
